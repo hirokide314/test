@@ -23,9 +23,9 @@ G.add_edge("か","き")
 
 fm.fontManager.addfont('ipaexg.ttf')
 font_name = fm.FontProperties(fname='ipaexg.ttf').get_name()
-print(font_name)
+print("font_name:",font_name)
 pr = nx.pagerank(G)
-plt.rcParams["font.family"] = "IPAGothic"
+plt.rcParams["font.family"] = font_name
 # plt.figure(figsize=(10,10))
 pos = nx.spring_layout(G,k=0.3)
 nx.draw_networkx_edges(G, pos=pos)
