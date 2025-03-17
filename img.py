@@ -23,15 +23,12 @@ G.add_edge("か","き")
 fm.fontManager.addfont('ipaexg.ttf')
 
 pr = nx.pagerank(G)
-plt.rcParams["font.family"] = 'MS Gothic'
+plt.rcParams["font.family"] = "IPAGothic"
 # plt.figure(figsize=(10,10))
 pos = nx.spring_layout(G,k=0.3)
 nx.draw_networkx_edges(G, pos=pos)
 nx.draw_networkx_nodes(G, pos=pos, node_color=list(pr.values()), cmap=plt.cm.Reds, node_size=[5000*v for v in pr.values()], label=list(G.nodes))
-nx.draw_networkx_labels(G, pos=pos, font_family='MS Gothic')
-
-
-# nx.draw(G, with_labels=True, font_family="MS Gothic") 
+nx.draw_networkx_labels(G, pos=pos, font_family="IPAGothic")
 plt.savefig("./graph.png")
 
 st.image("./graph.png")
