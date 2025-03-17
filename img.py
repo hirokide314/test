@@ -1,6 +1,7 @@
 import streamlit as st
 import networkx as nx
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 
 st.title("IMAGE")
 G = nx.DiGraph()
@@ -19,6 +20,7 @@ G.add_edge("う","え")
 G.add_edge("う","か")
 G.add_edge("か","き")
 
+fm.fontManager.addfont('ipaexg.ttf')
 
 pr = nx.pagerank(G)
 plt.rcParams["font.family"] = 'MS Gothic'
