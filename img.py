@@ -3,6 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 
+
 st.title("IMAGE")
 G = nx.DiGraph()
 G.add_node("あ")
@@ -21,14 +22,15 @@ G.add_edge("う","か")
 G.add_edge("か","き")
 
 fm.fontManager.addfont('ipaexg.ttf')
-
+font_name = fm.FontProperties(fname='ipaexg.ttf').get_name()
+print(font_name)
 pr = nx.pagerank(G)
 plt.rcParams["font.family"] = "IPAGothic"
 # plt.figure(figsize=(10,10))
 pos = nx.spring_layout(G,k=0.3)
 nx.draw_networkx_edges(G, pos=pos)
 nx.draw_networkx_nodes(G, pos=pos, node_color=list(pr.values()), cmap=plt.cm.Reds, node_size=[5000*v for v in pr.values()], label=list(G.nodes))
-nx.draw_networkx_labels(G, pos=pos, font_family="IPAGothic")
+nx.draw_networkx_labels(G, pos=pos, font_family=font_name)
 plt.savefig("./graph.png")
 
 st.image("./graph.png")
